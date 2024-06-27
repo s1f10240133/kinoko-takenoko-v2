@@ -35,7 +35,8 @@ def answer():
         message = re.sub(r'(\d{2,3})-\d+-\d+', r'\1-****-****', message)
         result = re.search(r'(https?://[A-Za-z0-9]*)', message)
         if result:
-            message = re.sub(r'https?://[A-Za-z0-9]*', r'<a href='result.group(1)'>result.group(1)</a>', message)
+            url = result.group(1)
+            message = re.sub(url, f'<a href="{url}">{url}</a>', message)
         message_html += '<div class="alert {1}" role="alert">{0}</div>\n'.format(
             message, 'alert-warning ms-5' if i % 2 == 0 else 'alert-success me-5')
 
