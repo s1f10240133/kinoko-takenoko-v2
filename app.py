@@ -33,7 +33,7 @@ def answer():
         message = re.sub(r'>', r'&gt;', message)
         message = re.sub(r'\*(.+)\*', r'<strong>\1</strong>', message)
         message = re.sub(r'(\d{2,3})-\d+-\d+', r'\1-****-****', message)
-        result = re.search(r'(https?://[A-Za-z0-9]*)', message)
+        result = re.search(r'(https?://[A-Za-z0-9.-]*)', message)
         if result:
             url = result.group(1)
             message = re.sub(url, f'<a href="{url}">{url}</a>', message)
